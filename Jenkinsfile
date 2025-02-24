@@ -1,45 +1,71 @@
 pipeline {
-    agent any  // Runs on any available agent (Jenkins node)
+    agent any
+
+    triggers {
+        githubPullRequest {
+            orgWhitelist(['imhashmi8'])
+            allowMembersOfWhitelistedOrgsAsAdmin()
+            onlyTriggerPhrase(false)
+            githubHooks(true)
+            triggerPhrase("test this PR")
+            autoCloseFailedPullRequests(false)
+            cron('* * * * *') // Polling every minute
+        }
+    }
 
     environment {
-        REPO_URL = 'https://github.com/MausoofAzam/exam-portal.git'
-        BRANCH = 'develop'  // Specify the branch to pull from
-        BUILD_DIR = 'target'  // Default Maven build directory
-        JAR_NAME = 'EXAM_MANAGEMENT-0.0.1-SNAPSHOT.jar'  // Change this to your application's JAR file name
+        BRANCH_NAME = "feature"
+        TARGET_BRANCH = "develop"
     }
 
     stages {
-        stage('Clone Repository') {
+        stage('Check Branch') {
             steps {
-                echo 'Cloning repository...'
-                git branch: "${BRANCH}", url: "${REPO_URL}"
-                // Fetches code from GitHub
+                script {
+                    if (env.CHANGE_TARGET != TARGET_BRANCH || env.BRANCH_NAME != BRANCH_NAME) {
+                        error("Pipeline only runs for PRs from 'develop' to 'feature'.")
+                    }
+                }
             }
         }
 
-        stage('Build JAR') {
+        stage('Checkout Code') {
             steps {
-                echo 'Building JAR file using Maven...'
-                sh 'mvn clean package -DskipTests'
-                // Runs Maven to build the project and create a JAR file
+                checkout scm
             }
         }
 
-        stage('Run Application') {
+        stage('Build') {
             steps {
-                echo 'Running Java application...'
-                sh "java -jar ${BUILD_DIR}/${JAR_NAME}"
-                // Runs the generated JAR file
+                echo "Building the project..."
+                // Add build steps here (e.g., Maven, npm, Gradle)
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo "Running tests..."
+                // Add test steps here (e.g., JUnit, Jest)
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo "Deploying application..."
+                // Add deployment steps (e.g., Docker, Kubernetes)
             }
         }
     }
 
     post {
+        always {
+            echo "Pipeline execution completed!"
+        }
         success {
-            echo 'Pipeline executed successfully!'
+            echo "Merge request from develop to feature was successful!"
         }
         failure {
-            echo 'Pipeline failed. Check logs for errors.'
+            echo "Build failed, please check the logs."
         }
     }
 }
