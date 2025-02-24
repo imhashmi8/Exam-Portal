@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="admin/base::layout(~{::section})">
+<head>
+  <meta charset="UTF-8">
+  <title align="center">Post Notice</title>
+  <link rel="stylesheet" href="/css/notices.css">
+</head>
+<body>
+<section>
+  <div id="notice-section">
+    <div th:if="${errorMessage}" class="alert-danger" th:text="${errorMessage}"></div>
+    <div th:if="${successMessage}" class="alert-success" th:text="${successMessage}"></div>
+
+    <form action="/admin/createNotice" method="post">
+      <h1>Create Notice</h1>
+      <textarea placeholder="Enter Notice Here" id="messages" name="messages"></textarea><br>
+      <button type="submit" class="btn btn-info">Post Notice</button>
+    </form>
+
+    <h3 align="center">All Notices:</h3>
+    <div th:each="notice : ${allNotices}">
+      <div class="notice">
+        <div class="notice-date" th:text="${notice.createdDate}"></div>
+
+        <div class="notice-message" th:text="${notice.messages}"></div>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="admin/base::layout(~{::section})">
+<head>
+  <meta charset="ISO-8859-1">
+  <title th:text="${title}"></title>
+</head>
+<body>
+
+<section>
+  <h3>Based on selection Here are the List of Questions</h3>
+
+  <table>
+    <thead>
+    <tr>
+      <th>Serial Number</th>
+      <th>Question Type</th>
+      <th>Options</th>
+    </tr>
+    </thead>
+    <h4 align="center">Total Question : <span th:text="${totalCount}"></span></h4>
+    <h4 align="center">Total Marks : <span th:text="${totalMarks}"></span></h4>
+    <h4 align="center"> Category : <span th:text="${category}"></span></h4>
+    <h4 align="center"> Level : <span th:text="${level}"></span></h4>
+    <h4 align="center"> Set Number : <span th:text="${setNumber}"></span></h4>
+    <tbody>
+<div>
+  <a href="/admin/mcq/examsList">Back</a>
+</div>
+    <tr th:each="question, iterStat : ${questions}">
+      <td>
+        <span class="question-number" th:text="${iterStat.count}"></span>
+        <span class="question-text" th:text="'.'"></span>
+      </td>
+      <td th:text="${question.questionType}"></td>
+      <td>
+        <ul>
+          <li class="answer-option">
+            <span class="option-label">a.</span>
+            <span th:text="${question.option1}"></span>
+          </li>
+          <li class="answer-option">
+            <span class="option-label">b.</span>
+            <span th:text="${question.option2}"></span>
+          </li>
+          <li class="answer-option">
+            <span class="option-label">c.</span>
+            <span th:text="${question.option3}"></span>
+          </li>
+          <li class="answer-option">
+            <span class="option-label">d.</span>
+            <span th:text="${question.option4}"></span>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="text-center">
+    <form action="/admin/assign-question" method="post">
+      <input type="hidden" name="userId" th:value="${userId}">
+      <input type="hidden" name="category" th:value="${category}">
+      <input type="hidden" name="level" th:value="${level}">
+      <input type="hidden" name="setNumber" th:value="${setNumber}">
+      <button type="submit" class="btn btn-info btn-lg btn-block">Assign This Set</button>
+    </form>
+
+  </div>
+
+</section>
+</body>
+
+</html>

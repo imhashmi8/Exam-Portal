@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="normal/base::layout(~{::section})">
+<head>
+    <meta charset="ISO-8859-1">
+    <title th:text="${title}"></title>
+</head>
+<body>
+<section>
+    <div class="result">
+        <h2 align="center">You have successfully Submitted your exam</h2>
+<!--        <h2 align="center">Name : <span th:text="${name}"></span></h2>-->
+<!--        <h2 align="center">Your Score: <span th:text="${score}"></span></h2>-->
+        <p align="center">Thank you for your participation! <a href="/user/index"> Back to Home Page</a></p>
+    </div>
+</section>
+</body>
+</html>

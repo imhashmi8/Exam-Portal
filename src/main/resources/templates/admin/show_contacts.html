@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="admin/base::layout(~{::section})">
+<head>
+  <meta charset="ISO-8859-1">
+  <title th:text="${title}"></title>
+</head>
+<body>
+
+<section>
+<div class="card mr-3 ml-3">
+  <div class="card-body">
+  <h1 class="text-center"> Your Contacts</h1>
+
+ <!--   <form action="/user/search">
+      <div>
+				<span style="display:inline-block">
+				<div class="container my-1">
+					Search Here: <input type="text" name="optionValue"
+                                        placeholder="Enter name or Email or Phone"
+                                        size="50" required/>
+					&nbsp;
+
+				</span>
+        <span class= "d-inline-block">
+        <div style="display:inline-block" class="form-group d-inline-block">
+          <select name="optionName" class="form-control d-inline-block">
+            <option value="name">Name</option>
+            <option value="email">by Email</option>
+            <option value="phone">by Phone</option>
+          </select>
+        </div>
+        </span>
+        <span class="d-inline-block">
+					<button class="btn btn-sm btn-primary col-12" type="submit"><i class="fa-sharp fa-solid fa-magnifying-glass"></i>Search</button>
+				</span>-->
+        <table class="table">
+          <thead>
+          <tr>
+
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">#ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="c : ${contacts}">
+        <th scope="row" th:text="'HM'+${c.cId}">1</th>
+        <td th:text="${c.name}">Mark</td>
+        <td th:text="${c.email}">Otto</td>
+        <td th:text="${c.phone}">@mdo</td>
+        <td>
+
+         <!-- <form method="post" th:action="@{'/user/open-contact/'+${c.cId}}">
+            <button type="submit" class="btn btn-warning btn-sm">Update</button>
+          </form>-->
+<!--          <br>-->
+          <a th:onclick="|deleteContact(${c.cId})|"
+             class="btn btn-danger btn-sm">Delete</a>
+
+
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+</section>
+
+</body>
+</html>

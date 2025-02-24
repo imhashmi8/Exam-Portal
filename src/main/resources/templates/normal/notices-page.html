@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="normal/base::layout(~{::section})">
+<head>
+  <meta charset="ISO-8859-1">
+  <title th:text="${title}">Notice</title>
+</head>
+<body>
+<section>
+  <div id="notice-table">
+    <table>
+      <thead>
+      <tr>
+        <th>Published Date</th>
+        <th align="center">Notice</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="notice : ${notices}">
+        <td th:text="${notice.createdDate}"></td>
+        <td th:text="${notice.messages}"></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+</body>
+</html>

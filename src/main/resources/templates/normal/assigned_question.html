@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::layout(~{::section})">
+<head>
+  <meta charset="ISO-8859-1">
+  <title th:text="${title}">Exam Section</title>
+
+</head>
+<body>
+<section>
+  <div>
+    <h2 align="center">This page is for assigned questions to a particular student</h2>
+    <p align="center">Prepare yourself for the upcoming exam! This section contains the questions specifically assigned to you. Take your time, read each question carefully, and provide well-thought-out answers. Remember, practice makes perfect, so give it your best shot!</p>
+    <div class= "d-grid gap-2 col-6 mx-auto" align="center">
+      <a id="user-link-testing" class="btn btn-info btn-lg"  th:href="@{/user/assigned-question(userId=${userId})}" >Start Assessment</a>
+
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>

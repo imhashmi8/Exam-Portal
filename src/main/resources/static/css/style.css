@@ -1,0 +1,319 @@
+body {
+	background: #ccc !important;
+	 font-family: Serif
+}
+
+.bg-primary {
+	background: #17a2b8 !important;
+}
+
+.banner {
+	width: 100%;
+	height: 93vh;
+	background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)),
+		url(../img/banner.png);
+	background-size: cover;
+	color: white;
+}
+
+.my-card {
+	padding: 20px;
+	background: #ffffff;
+
+}
+
+#login .container #login-row #login-column #login-box {
+	margin-top: 120px;
+	max-width: 600px;
+	height: 400px;
+	border: 1px solid #9C9C9C;
+	background-color: white;
+	box-sizing:border-box;
+}
+
+#login .container #login-row #login-column #login-box #login-form {
+	padding: 20px;
+}
+
+#login .container #login-row #login-column #login-box #login-form #register-link
+	{
+	margin-top: -85px;
+}
+
+@media only screen and (max-width:600px) {
+	.sidebar {
+		display: none;
+		width: 80% !important;
+		background: white;
+		height: 100vh;
+		position: fixed;
+		padding-top: 20px;
+	}
+	.content {
+		margin-left: 0% !important
+	}
+}
+
+.sidebar {
+	width: 18%;
+	background: #ebedf0;
+	height: 100%;
+	position: fixed;
+	padding-top: 45px;
+	z-index: 9999999999;
+}
+
+.sidebar a {
+	display: block;
+	width: 100%;
+	padding: 5px 20px;
+	text-decoration: none;
+	color: black;
+}
+
+.sidebar a:hover {
+	background: #e2e2e2;
+}
+
+.sidebar .divider {
+	height: 5px;
+	width: 100%;
+	background: #e2e2e2;
+	margin-top: 10px;
+}
+
+.content {
+	margin-left: 20%;
+}
+
+.sidebar .crossBtn {
+	position: absolute;
+	top: 0px;
+	right: 35px;
+	font-size: 36px;
+	cursor: pointer;
+}
+
+.my_profile_picture {
+	width: 35px;
+	height: 35px;
+	object-fit: cover;
+	border-radius: 50%;
+	border:1px solid black;
+}
+
+.search-container{
+
+	position: relative;
+}
+
+.search-result{
+
+	position: absolute;
+	background: white;
+	width:100%;
+	padding:10px;
+	border:1px solid gray;
+	display: none;
+
+}
+
+.active{
+
+	background: #009688 !important;
+	color:white !important;
+}
+
+
+    .labelAndFieldHolder{
+        display:inline-block;
+        width:calc(50% - 0px);
+    }
+     label {
+          margin-bottom: 5px;
+        }
+
+        input[type="text"], select {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          margin-bottom: 10px;
+        }
+
+    .option {
+      display: flex;
+      align-items: center;
+    }
+     .option label {
+          margin-left: 10px;
+        }
+    .button-container {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px;
+    }
+
+    .button-container a {
+      color: black;
+      text-decoration: none;
+      padding: 10px 10px;
+    }
+
+    .selected-info {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+   .item {
+     padding: 10px 20px;
+     margin: 6px 0;
+   }
+
+   .submit{
+   align: center;
+   }
+
+
+
+
+
+
+
+  .questions {
+    float: left;
+    width: 70%;
+  }
+  .question-list {
+    float: right;
+    width: 30%;
+  }
+  .question-list table {
+    border-collapse: collapse;
+  }
+  .question-list td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+  }
+
+.attempted {
+  background-color: lightgreen;
+}
+
+
+ #timer {
+      text-align: center;
+      font-size: 24px;
+      margin-top: 20px;
+    }
+
+
+
+#upload-section {
+  margin: 0 auto;
+  width: 70%;
+  padding: 20px;
+  background-color: #f2f2f2;
+}
+
+#notice-section textarea {
+  width: 80%;
+  height: 100px;
+  padding: 10px;
+}
+#notice-section form {
+  text-align: auto;
+}
+
+
+
+
+
+#notice-table {
+  margin: 20px;
+  padding: 20px;
+}
+
+#notice-table table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#notice-table table, #notice-table th, #notice-table td {
+  border: 1px solid black;
+}
+
+#notice-table th, #notice-table td {
+  padding: 10px;
+}
+
+#notice-table th {
+  text-align: left;
+}
+
+#notice-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+
+#admin-dashboard {
+  margin: 20px;
+  padding: 20px;
+}
+
+#admin-dashboard h3 {
+  font-size: 24px;
+}
+
+#admin-dashboard p {
+  font-size: 18px;
+}
+
+#admin-dashboard a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #17a2b8;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+}
+
+
+#student-home {
+  padding: 20px;
+  margin: 20px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.button-container a {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #17a2b8;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+}
+
+.button-container a:hover {
+  background-color: #3e8e41;
+}
+
+p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.notice {
+  background-color: lightblue;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+

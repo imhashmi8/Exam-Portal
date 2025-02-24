@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/exam_base::layout(~{::section})">
+
+<head>
+  <meta charset="ISO-8859-1">
+  <title th:text="${title}">Success</title>
+</head>
+
+<body>
+<section>
+  <div class="container"> <!-- display the current question -->
+    <form id="question-form" th:action="@{/user/calculate-score}" method="post">
+      <div class="questions">
+        <div class="question" th:each="question, questionIndex : ${questions.content}">
+          <h3><span th:text="${(pageNumber - 1) * questions.size + questionIndex.index + 1}"></span>.
+            <span th:text="${question.questionType}"></span></h3> <input type="hidden"
+                                                                         name="questionIds[]" th:value="${question.id}">
+          <div class="option"> <input type="radio" th:id="${'option1-' + question.id}"
+                                      th:name="${'question-' + question.id}" th:value="${question.option1}"> <label
+                  th:for="${'option1-' + question.id}" th:text="${question.option1}"></label> </div>
+          <div class="option"> <input type="radio" th:id="${'option2-' + question.id}"
+                                      th:name="${'question-' + question.id}" th:value="${question.option2}"> <label
+                  th:for="${'option2-' + question.id}" th:text="${question.option2}"></label> </div>
+          <div class="option"> <input type="radio" th:id="${'option3-' + question.id}"
+                                      th:name="${'question-' + question.id}" th:value="${question.option3}"> <label
+                  th:for="${'option3-' + question.id}" th:text="${question.option3}"></label> </div>
+          <div class="option"> <input type="radio" th:id="${'option4-' + question.id}"
+                                      th:name="${'question-' + question.id}" th:value="${question.option4}"> <label
+                  th:for="${'option4-' + question.id}" th:text="${question.option4}"></label> </div>
+        </div> <!-- display the navigation buttons -->
+        <div class="button-container">
+          <div class="previousBtnHolder">
+            <div th:if="${pageNumber > 1}">
+              <a th:href="@{/user/assigned-question(pageNumber=${pageNumber - 1})}"
+                 class="btn btn-info btn-sm" onclick="unselectCheckbox()">Previous</a>
+            </div>
+          </div>
+          <div class="nextBtnHolder">
+            <div th:if="${pageNumber < totalPages}">
+              <a id="next-button" th:href="@{/user/assigned-question(pageNumber=${pageNumber + 1})}"
+                 class="btn btn-info btn-sm">Next</a>
+            </div>
+          </div>
+        </div> <!-- Submit button -->
+        <div class="submit" align="center" th:if="${questions.last}"> <button type="submit"
+                                                                              class="btn btn-info btn-lg btn-block">Submit</button> </div>
+        <div class="selected-info">
+          <h5 hidden="hidden">UserId: <span th:text="${userId}"></span></h5>
+          <h5>Question <span th:text="${pageNumber}"></span> of <span th:text="${totalPages}"></span></h5>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+</body>
+
+</html>

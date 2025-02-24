@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="admin/base::layout(~{::section})">
+<head>
+  <meta charset="ISO-8859-1">
+  <title th:text="${title}"></title>
+</head>
+<body>
+<section>
+  <div>
+    <p> Dear Admin/TL , you have successfully assigned the Question to the particular Student</p>
+    <a href="/admin/show-users">Back to Home Page</a>
+  </div>
+</section>
+</body>
+</html>

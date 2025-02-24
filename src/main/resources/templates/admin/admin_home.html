@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="admin/base::layout(~{::section})">
+<head>
+  <meta charset="ISO-8859-1">
+  <title th:text="${title}"></title>
+  <link rel="stylesheet" href="path/to/your/stylesheet.css">
+</head>
+<body>
+
+<section>
+  <div id="admin-dashboard">
+    <h3 align="center">This is Admin/TL Dashboard</h3>
+    <p align="center">Here Admin/ Tl can able to view the List of Student, he can able to delete the Registered Student.
+      Admin/TL can able to assign the Question to the particular Question Based on Category, Level and SetNumber
+    </p>
+
+    <div align="center">
+      <a id="user-link" th:href="@{/admin/show-users}" class="item">
+        Start Assigning Exam to Student Here</a>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>

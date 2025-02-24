@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="admin/base::layout(~{::section})">
+<head>
+    <meta charset="ISO-8859-1">
+    <title th:text="${title}"></title>
+</head>
+<body>
+<section>
+    <h3 align="center">Please Assign Questions to the student</h3>
+    <form action="#" th:action="@{/admin/mcq/examsList}" method="get">
+        <div class="input-group">
+            <label for="Category">Category:</label>
+            <select id="Category" name="category">
+                <option value="Java">Java</option>
+                <option value=".Net">.Net</option>
+                <option value="Testing">Testing</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="level">Level:</label>
+            <select id="level" name="level">
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="questionSet">Question Set:</label>
+            <select id="questionSet" name="setNumber">
+                <option value="1">Set A</option>
+                <option value="2">Set B</option>
+                <option value="3">Set C</option>
+                <option value="4">Set D</option>
+            </select>
+        </div>
+        <input type="hidden" name="userId" th:value="${userId}" />
+        <button type="submit" class="btn btn-info btn-lg btn-block">View Question</button>
+        <a href="/admin/show-users"> Back to Student List</a>
+    </form>
+</section>
+</body>
+</html>

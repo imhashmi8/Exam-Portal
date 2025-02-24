@@ -1,0 +1,171 @@
+
+/* add a border to the question container */
+.question {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* add a border to the option container */
+.option {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+     .option label {
+          margin-left: 10px;
+        }
+    .button-container {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px;
+    }
+
+    .button-container a {
+      color: black;
+      text-decoration: none;
+      padding: 10px 10px;
+    }
+
+    .selected-info {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+   .item {
+     padding: 10px 20px;
+     margin: 5px 0;
+   }
+
+   .submit{
+   align: center;
+   }
+
+.sidebar {
+    margin-top:30px;
+justify-content: flex-start;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 150px;
+    height: 100%;
+    background-color: white;
+    padding: 15px;
+}
+
+.sidebar h3 {
+    margin-top: 50px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+#timer {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* style the button container */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* style the previous and next buttons */
+#previous-button, #next-button {
+    background-color: #00BCD4;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#previous-button:hover, #next-button:hover {
+    background-color: #45a049;
+}
+
+.container {
+  margin-left: 30px;
+  margin-right:5px;
+  margin-top:25px;
+}
+
+.previousBtnHolder{
+text-align:left;
+}
+.nextBtnHolder{
+text-align:left;
+}
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.pagination {
+  margin-top: 20px;
+}
+
+.page-item {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.page-link {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  text-decoration: none;
+  color: #333;
+}
+
+.page-item.disabled .page-link {
+  pointer-events: none;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.page-item.active .page-link {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+.previous-item,
+.next-item {
+  padding: 0;
+}
+
+.previous-item .page-link,
+.next-item .page-link {
+  padding: 8px 12px;
+  border: none;
+  background-color: transparent;
+  color: #007bff;
+}
+
+.previous-item.disabled .page-link,
+.next-item.disabled .page-link {
+  color: #888;
+  cursor: not-allowed;
+}
+.scrollable-list{
+max-height: 500px;
+overflow-y:auto;
+}

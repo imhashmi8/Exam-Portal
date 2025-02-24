@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="admin/base::layout(~{::section})">
+<head>
+    <meta charset="ISO-8859-1">
+    <title th:text="${title}"></title>
+</head>
+<body>
+<section>
+    
+    <div class="card mr-3 ml-3">
+        <div class="card-body">
+            <h1 class="text-center">LIST OF STUDENTS</h1>
+
+            <form action="/admin/search">
+                <div>
+                    <span style="display:inline-block">
+                        <div class="container my-1">
+                            Search Here: <input type="text" name="optionValue"
+                                                placeholder="Enter name"
+                                                size="50" required/>
+                        </div>
+                    </span>
+                    <span "d-inline-block">
+                    <div style="display:inline-block" class="form-group d-inline-block">
+                        <select name="optionName" class="form-control d-inline-block">
+                            <option value="name"> Name</option>
+<!--                            <option value="email">by Email</option>-->
+                        </select>
+                    </div>
+                    </span>
+                    <span class="d-inline-block">
+                        <button class="btn btn-sm btn-info"  type="submit">
+                            <i class="fa-sharp fa-solid fa-magnifying-glass"></i>Search
+                        </button>
+<!--                        <a href="/admin/show-users">Back</a>-->
+                    </span>
+                </div>
+            </form>
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+<!--                    <th scope="col">ROLE</th>-->
+<!--                    <th scope="col">ACTIVE-STATUS</th>-->
+                    <th scope="col">STATUS</th>
+                    <th scope="col">Marks Obtained</th>
+                    <th scope="col">ACTION</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="user : ${userList}">
+                    <td th:text="${user.name}">Mark</td>
+                    <td th:text="${user.email}">Mark</td>
+<!--                    <td th:text="${user.role}">Mark</td>-->
+<!--                    <td th:text="${user.enabled}">Mark</td>-->
+                    <td>
+                        <span th:if="${user.hasAssignedQuestions}">Questions assigned</span>
+                    </td>
+                    <td th:text="${user.score}">Mark</td>
+
+
+                    <td>
+                        <a th:href="@{/admin/deleteUser/{id}(id=${user.id})}" class="btn btn-danger">Delete</a>
+                        <a th:href="@{mcq/exam12/{userId}(userId=${user.id})}" class="btn btn-info">GO</a>
+                    </td>
+
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <div th:if="${successMessage}" class="alert alert-success">
+        <strong>Success:</strong> <span th:text="${successMessage}"></span>
+    </div>
+
+    </div>
+</section>
+</body>
+</html>
+<form action="#" th:action="@{/admin/mcq/examsList/{userId}(userId=${user.id})}" method="get">

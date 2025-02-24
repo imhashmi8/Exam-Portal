@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="admin/base::layout(~{::section})">
+<head>
+  <meta charset="ISO-8859-1">
+  <title th:text="${title}"></title>
+  <link rel="stylesheet" href="path/to/your/stylesheet.css">
+</head>
+<body>
+
+<section>
+  <div id="upload-section">
+    <h2>Please upload an Excel file containing questions here</h2>
+    <form action="#" th:action="@{/admin/sheet/upload}" method="post" enctype="multipart/form-data">
+      <label for="excel_file">Select an Excel File:</label>
+      <input type="file" name="file" id="excel_file" /><br />
+
+      <div th:if="${successMessage}" style="color: green;">File uploaded successfully!</div>
+      <div th:if="${errorMessage}" style="color: red;">Please upload an Excel file.</div>
+
+      <!--    <button type="submit">Save</button>-->
+      <button type="submit" class="btn btn-info">Upload Now</button>
+      <!--    <button type="reset">Reset</button>-->
+      <button type="reset" class="btn btn-info">Reset</button>
+
+      <a href="/admin/index" class="btn btn-info">Home</a>
+    </form>
+  </div>
+</section>
+
+</body>
+</html>
